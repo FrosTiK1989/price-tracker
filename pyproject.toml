@@ -1,0 +1,52 @@
+[project]
+name = "price-tracker"
+version = "0.1.0"
+description = "Трекер цен на комплектующие для ПК: DNS, Avito, маркетплейсы"
+readme = "README.md"
+authors = [
+    { name = "Denis Maresov", email = "frostik1989@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.143.2",
+    "pydantic-settings>=2.16.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+price-tracker = "price_tracker:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.13.1",
+    "mypy>=2.4.0",
+    "pre-commit>=4.7.0",
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
+
+[tool.ruff]
+line-length = 99
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F",  # pycodestyle, pyflakes
+    "I",            # сортировка импортов
+    "B",            # частые баги
+    "UP",           # современный синтаксис Python
+    "SIM",          # упрощения
+    "ASYNC",        # ошибки в async-коде
+    "RUF",
+]
+
+[tool.mypy]
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
