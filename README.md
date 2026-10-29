@@ -1,4 +1,5 @@
 # Price Tracker
+[![CI](https://github.com/FrosTiK1989/price-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/FrosTiK1989/price-tracker/actions/workflows/ci.yml)
 
 Telegram-бот для отслеживания цен на комплектующие для ПК.
 
